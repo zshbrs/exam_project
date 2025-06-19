@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR/VR Тригонометрія - Сучасний освітній ресурс</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>🔧 Технічна документація - Інтерактивне тригонометричне коло</title>
     <style>
         * {
             margin: 0;
@@ -13,706 +12,1254 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .header {
             text-align: center;
+            color: white;
             margin-bottom: 40px;
             padding: 40px 0;
-            background: linear-gradient(135deg, #00bcd4, #ff5722);
-            border-radius: 15px;
-            color: white;
-            position: relative;
-            overflow: hidden;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/><circle cx="20" cy="20" r="1" fill="white" opacity="0.2"/><circle cx="80" cy="30" r="1.5" fill="white" opacity="0.15"/></svg>');
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        h1 {
+        .header h1 {
             font-size: 2.5rem;
-            font-weight: 700;
             margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .badges {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
-        .badge {
-            padding: 5px 12px;
+        .tech-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: white;
+            margin: 5px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
-        .badge-ready { background: #4caf50; }
-        .badge-aframe { background: #ff9800; }
-        .badge-education { background: #2196f3; }
-
-        .quick-start {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .demo-card {
-            background: linear-gradient(135deg, #00bcd4, #0097a7);
-            color: white;
-            padding: 25px;
+        .content-card {
+            background: white;
             border-radius: 15px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
             overflow: hidden;
         }
 
-        .demo-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transition: transform 0.5s ease;
+        .card-header {
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
 
-        .demo-card:hover::before {
-            transform: scale(1.2);
-        }
-
-        .demo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 188, 212, 0.3);
-        }
-
-        .home-card {
-            background: linear-gradient(135deg, #ff5722, #e64a19);
-        }
-
-        .home-card:hover {
-            box-shadow: 0 15px 30px rgba(255, 87, 34, 0.3);
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-subtitle {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
+        .card-body {
+            padding: 30px;
         }
 
         .section {
             margin-bottom: 40px;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid #00bcd4;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #333;
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.8rem;
         }
 
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #555;
-            margin: 25px 0 15px 0;
+        .section h3 {
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
         }
 
-        h4 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #666;
-            margin: 20px 0 10px 0;
+        .section h4 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
-        .features-grid {
+        .architecture-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
-        .feature-card {
-            background: #f8f9fa;
+        .architecture-item {
+            background: #ecf0f1;
             padding: 20px;
             border-radius: 10px;
-            border-left: 3px solid #00bcd4;
-            transition: transform 0.2s ease;
+            border-left: 4px solid #3498db;
+            position: relative;
         }
 
-        .feature-card:hover {
-            transform: translateX(5px);
+        .architecture-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
-        .color-demo {
-            display: flex;
-            gap: 15px;
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
             margin: 15px 0;
-            flex-wrap: wrap;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            position: relative;
         }
 
-        .color-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            border-radius: 20px;
+        .code-block .language {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: #3498db;
             color: white;
-            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
         }
 
-        .sin-color { background: #00bcd4; }
-        .cos-color { background: #ff5722; }
-        .tan-color { background: #4caf50; }
+        .code-block:hover {
+            background: #34495e;
+        }
 
-        .tech-list {
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .api-table th {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .api-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+            vertical-align: top;
+        }
+
+        .api-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .parameter-type {
+            background: #e74c3c;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+
+        .parameter-type.string { background: #27ae60; }
+        .parameter-type.number { background: #f39c12; }
+        .parameter-type.boolean { background: #9b59b6; }
+        .parameter-type.object { background: #34495e; }
+        .parameter-type.function { background: #e67e22; }
+
+        .file-tree {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            line-height: 1.4;
+        }
+
+        .file-tree .folder {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .file-tree .file {
+            color: #3498db;
+        }
+
+        .file-tree .comment {
+            color: #95a5a6;
+        }
+
+        .performance-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
-            margin-top: 15px;
+            margin: 20px 0;
         }
 
-        .tech-item {
-            background: #f1f3f4;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 3px solid #4caf50;
-        }
-
-        .controls-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .control-section {
-            background: #f8f9fa;
+        .performance-item {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
             padding: 20px;
             border-radius: 10px;
-        }
-
-        .key-combo {
-            display: inline-block;
-            background: #333;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            margin: 2px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background: #00bcd4;
-            color: white;
-            font-weight: 600;
-        }
-
-        tr:hover {
-            background: #f5f5f5;
-        }
-
-        .status-icon {
-            font-size: 1.2rem;
-        }
-
-        .installation-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .method-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-top: 3px solid #4caf50;
-        }
-
-        pre {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-        }
-
-        code {
-            background: #f1f3f4;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-        }
-
-        .footer {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #333, #555);
+        }
+
+        .performance-item .metric {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .performance-item .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .warning-box {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
             color: white;
-            border-radius: 15px;
-            margin-top: 40px;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #fff;
         }
 
-        .footer-links {
+        .info-box {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #fff;
+        }
+
+        .success-box {
+            background: linear-gradient(45deg, #27ae60, #229954);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #fff;
+        }
+
+        .navigation {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .navigation ul {
+            list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
             flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
         }
 
-        .footer-link {
-            color: #00bcd4;
+        .navigation a {
+            color: white;
             text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #00bcd4;
-            border-radius: 20px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
             transition: all 0.3s ease;
         }
 
-        .footer-link:hover {
-            background: #00bcd4;
+        .navigation a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .dependency-item {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .dependency-item .name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .dependency-item .version {
+            background: #3498db;
             color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-left: 10px;
         }
 
-        .emoji {
-            font-size: 1.2rem;
-            margin-right: 5px;
-        }
-
-        .highlight {
-            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #ff5722;
-        }
-
-        .scroll-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #00bcd4;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1000;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
+        .dependency-item .description {
+            margin-top: 8px;
+            color: #6c757d;
         }
 
         @media (max-width: 768px) {
             .container {
-                margin: 10px;
-                padding: 15px;
+                padding: 10px;
             }
-
-            h1 {
+            
+            .header h1 {
                 font-size: 2rem;
             }
-
-            .badges {
+            
+            .api-table {
+                font-size: 0.9rem;
+            }
+            
+            .navigation ul {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .quick-start {
-                grid-template-columns: 1fr;
-            }
-
-            .color-demo {
-                flex-direction: column;
+            
+            .code-block {
+                font-size: 0.9rem;
             }
         }
+
+        /* Syntax highlighting for code blocks */
+        .keyword { color: #f92672; }
+        .string { color: #a6e22e; }
+        .comment { color: #75715e; }
+        .number { color: #ae81ff; }
+        .function { color: #66d9ef; }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>Сучасний освітній AR/VR ресурс для вивчення тригонометричних функцій</h1>
-            <div class="badges">
-                <span class="badge badge-ready">Статус: Готовий</span>
-                <span class="badge badge-aframe">A-Frame 1.4.2</span>
-                <span class="badge badge-education">Тип: Освітній ресурс</span>
+        <div class="header">
+            <h1>🔧 Технічна документація</h1>
+            <p>Інтерактивне тригонометричне коло - VR освітній проєкт</p>
+            <div style="margin-top: 20px;">
+                <span class="tech-badge">A-Frame 1.4.2</span>
+                <span class="tech-badge">Three.js</span>
+                <span class="tech-badge">JavaScript ES6</span>
+                <span class="tech-badge">WebXR</span>
+                <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
             </div>
-        </header>
+        </div>
 
-        <section class="quick-start">
-            <a href="https://zshbrs.github.io/exam_project/demo.html" class="demo-card">
-                <div class="card-title"><span class="emoji">▶️</span>Онлайн демо</div>
-                <div class="card-subtitle">Запустити демонстрацію</div>
-            </a>
-            <a href="https://zshbrs.github.io/exam_project/" class="demo-card home-card">
-                <div class="card-title"><span class="emoji">🏠</span>Головна сторінка</div>
-                <div class="card-subtitle">Переглянути проєкт</div>
-            </a>
-        </section>
+        <!-- Навігація -->
+        <div class="navigation">
+            <ul>
+                <li><a href="#architecture">🏗️ Архітектура</a></li>
+                <li><a href="#dependencies">📦 Залежності</a></li>
+                <li><a href="#api">🔌 API</a></li>
+                <li><a href="#performance">⚡ Продуктивність</a></li>
+                <li><a href="#deployment">🚀 Розгортання</a></li>
+                <li><a href="#development">👨‍💻 Розробка</a></li>
+            </ul>
+        </div>
 
-        <section class="section">
-            <h2><span class="emoji">📖</span>Опис проєкту</h2>
-            <p>Інтерактивне тригонометричне коло - це інноваційний освітній інструмент для візуального вивчення тригонометричних функцій (sin, cos, tan) у 3D середовищі з підтримкою AR/VR технологій.</p>
-            
-            <h3><span class="emoji">🎯</span>Мета проєкту</h3>
-            <div class="features-grid">
-                <div class="feature-card">Зробити вивчення тригонометрії інтуїтивним та захоплюючим</div>
-                <div class="feature-card">Візуалізувати абстрактні математичні концепції</div>
-                <div class="feature-card">Забезпечити інтерактивний досвід навчання</div>
-                <div class="feature-card">Підтримати сучасні AR/VR технології</div>
+        <!-- Архітектура проєкту -->
+        <div class="content-card" id="architecture">
+            <div class="card-header">
+                <h2>🏗️ Архітектура проєкту</h2>
             </div>
+            <div class="card-body">
+                <div class="section">
+                    <h3>📁 Структура файлів</h3>
+                    <div class="file-tree">
+educational-ar-project/
+├── <span class="file">index.html</span>               <span class="comment"># Головна сторінка з навігацією</span>
+├── <span class="file">demo.html</span>                <span class="comment"># Основний додаток</span>
+├── <span class="file">README.md</span>                <span class="comment"># Документація проєкту</span>
+├── <span class="folder">assets/</span>                    <span class="comment"># Ресурси проєкту</span>
+│   ├── <span class="folder">models/</span>               <span class="comment"># 3D моделі (.glb, .gltf)</span>
+│   ├── <span class="folder">textures/</span>             <span class="comment"># Текстури та зображення</span>
+│   ├── <span class="folder">sounds/</span>               <span class="comment"># Аудіо файли</span>
+│   └── <span class="folder">fonts/</span>                <span class="comment"># Шрифти (.json, .png)</span>
+├── <span class="folder">libs/</span>                     <span class="comment"># Бібліотеки та залежності</span>
+│   ├── <span class="folder">aframe/</span>              <span class="comment"># A-Frame файли</span>
+│   ├── <span class="folder">three/</span>               <span class="comment"># Three.js файли</span>
+│   └── <span class="folder">mindar/</span>              <span class="comment"># MindAR файли (опціонально)</span>
+├── <span class="folder">src/</span>                      <span class="comment"># Вихідний код</span>
+│   ├── <span class="folder">components/</span>          <span class="comment"># Користувацькі компоненти</span>
+│   ├── <span class="folder">utils/</span>               <span class="comment"># Допоміжні функції</span>
+│   └── <span class="folder">core/</span>                <span class="comment"># Основна логіка</span>
+├── <span class="folder">docs/</span>                     <span class="comment"># Документація</span>
+│   ├── <span class="file">user-guide.html</span>        <span class="comment"># Посібник користувача</span>
+│   ├── <span class="file">technical-docs.html</span>    <span class="comment"># Технічна документація</span>
+│   └── <span class="file">presentation.md</span>        <span class="comment"># Матеріали презентації</span>
+└── <span class="folder">examples/</span>                 <span class="comment"># Приклади та демо</span>
+    ├── <span class="file">basic-example.html</span>     <span class="comment"># Базовий приклад</span>
+    └── <span class="file">advanced-demo.html</span>     <span class="comment"># Складний приклад</span>
+                    </div>
 
-            <h3><span class="emoji">👥</span>Цільова аудиторія</h3>
-            <div class="features-grid">
-                <div class="feature-card"><strong>Учні 9-11 класів</strong> - вивчення основ тригонометрії</div>
-                <div class="feature-card"><strong>Студенти</strong> математичних та технічних спеціальностей</div>
-                <div class="feature-card"><strong>Викладачі</strong> математики та фізики</div>
-                <div class="feature-card"><strong>Ентузіасти</strong> сучасних освітніх технологій</div>
-            </div>
-        </section>
+                    <h3>🔧 Основні компоненти</h3>
+                    <div class="architecture-grid">
+                        <div class="architecture-item">
+                            <h4>🎨 Презентаційний шар</h4>
+                            <p>HTML5, CSS3, A-Frame сцена з користувацьким інтерфейсом та VR/AR підтримкою</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>⚙️ Логічний шар</h4>
+                            <p>JavaScript ES6+ з математичними обчисленнями, керуванням подій та анімаціями</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🎮 Шар взаємодії</h4>
+                            <p>Event listeners, touch handlers, keyboard shortcuts та VR контролери</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>📊 Шар візуалізації</h4>
+                            <p>Three.js рендерер, A-Frame примітиви, WebGL контекст</p>
+                        </div>
+                    </div>
 
-        <section class="section">
-            <h2><span class="emoji">✨</span>Основна функціональність</h2>
-            
-            <h3><span class="emoji">🎮</span>Інтерактивні елементи</h3>
-            <div class="features-grid">
-                <div class="feature-card"><strong>Слайдер кута</strong> - плавна зміна від 0° до 360°</div>
-                <div class="feature-card"><strong>Анімація обертання</strong> - автоматичне обертання радіус-вектора</div>
-                <div class="feature-card"><strong>Вибір функцій</strong> - відображення окремих sin, cos, tan</div>
-                <div class="feature-card"><strong>Побудова графіків</strong> - динамічне створення кривих функцій</div>
-            </div>
-
-            <h3><span class="emoji">📊</span>3D Візуалізація</h3>
-            <div class="features-grid">
-                <div class="feature-card"><strong>Одиничне коло</strong> з координатними осями</div>
-                <div class="feature-card"><strong>Кольорові проекції</strong> функцій на осі</div>
-                <div class="feature-card"><strong>Підсвічування особливих кутів</strong> (0°, 30°, 45°, 60°, 90°...)</div>
-                <div class="feature-card"><strong>Реальні значення</strong> з точністю до 3 знаків після коми</div>
-            </div>
-
-            <h3><span class="emoji">🎨</span>Кольорове кодування</h3>
-            <div class="color-demo">
-                <div class="color-item sin-color">🔵 Синус (sin) - #00bcd4</div>
-                <div class="color-item cos-color">🔴 Косинус (cos) - #ff5722</div>
-                <div class="color-item tan-color">🟢 Тангенс (tan) - #4caf50</div>
-            </div>
-
-            <h3><span class="emoji">🥽</span>AR/VR підтримка</h3>
-            <div class="features-grid">
-                <div class="feature-card"><strong>WebXR</strong> інтеграція для сучасних браузерів</div>
-                <div class="feature-card"><strong>VR режим</strong> для повного занурення (кнопка 🌐)</div>
-                <div class="feature-card"><strong>AR режим</strong> для накладання на реальний світ (кнопка 🥽)</div>
-                <div class="feature-card"><strong>Автоматична перевірка</strong> підтримки пристрою</div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2><span class="emoji">🛠️</span>Технології</h2>
-            
-            <h3>Основний стек</h3>
-            <div class="tech-list">
-                <div class="tech-item"><strong>A-Frame 1.4.2</strong> - WebVR/AR фреймворк</div>
-                <div class="tech-item"><strong>JavaScript ES6+</strong> - логіка додатку</div>
-                <div class="tech-item"><strong>HTML5/CSS3</strong> - інтерфейс та стилізація</div>
-                <div class="tech-item"><strong>WebGL</strong> - 3D рендеринг</div>
-                <div class="tech-item"><strong>WebXR API</strong> - AR/VR функціональність</div>
-            </div>
-
-            <h3>Допоміжні інструменти</h3>
-            <div class="tech-list">
-                <div class="tech-item"><strong>Google Fonts (Inter)</strong> - типографіка</div>
-                <div class="tech-item"><strong>CSS Grid/Flexbox</strong> - адаптивна верстка</div>
-                <div class="tech-item"><strong>CSS Animations</strong> - плавні переходи</div>
-                <div class="tech-item"><strong>Touch Events</strong> - підтримка мобільних пристроїв</div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2><span class="emoji">⌨️</span>Керування</h2>
-            
-            <div class="controls-grid">
-                <div class="control-section">
-                    <h3>Клавіатура</h3>
-                    <p><span class="key-combo">←→</span> - зміна кута на ±5°</p>
-                    <p><span class="key-combo">Пробіл</span> - увімкнути/вимкнути анімацію</p>
-                    <p><span class="key-combo">1</span> - вибрати функцію sin(θ)</p>
-                    <p><span class="key-combo">2</span> - вибрати функцію cos(θ)</p>
-                    <p><span class="key-combo">3</span> - вибрати функцію tan(θ)</p>
-                    <p><span class="key-combo">C</span> - очистити графік</p>
-                </div>
-
-                <div class="control-section">
-                    <h3>Миша та дотики</h3>
-                    <p><strong>Слайдер</strong> - точна зміна кута</p>
-                    <p><strong>Чекбокси</strong> - показ/приховування функцій</p>
-                    <p><strong>Кнопки</strong> - швидкий вибір функцій для графіків</p>
-                    <p><strong>Touch жести</strong> - підтримка мобільних пристроїв</p>
+                    <h3>🌐 Технологічний стек</h3>
+                    <div class="dependency-item">
+                        <div class="name">A-Frame <span class="version">1.4.2</span></div>
+                        <div class="description">Фреймворк для створення VR/AR додатків на основі HTML</div>
+                    </div>
+                    <div class="dependency-item">
+                        <div class="name">Three.js <span class="version">Latest</span></div>
+                        <div class="description">JavaScript бібліотека для 3D графіки в браузері</div>
+                    </div>
+                    <div class="dependency-item">
+                        <div class="name">WebXR API <span class="version">W3C</span></div>
+                        <div class="description">Стандарт для VR/AR веб-додатків</div>
+                    </div>
+                    <div class="dependency-item">
+                        <div class="name">WebGL <span class="version">2.0</span></div>
+                        <div class="description">API для рендерингу 3D графіки в браузері</div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="section">
-            <h2><span class="emoji">📱</span>Використання</h2>
-
-            <div class="highlight">
-                <h3>Базові дії</h3>
-                <ol>
-                    <li>Відкрийте демо у сучасному браузері</li>
-                    <li>Змінюйте кут за допомогою слайдера (0° - 360°)</li>
-                    <li>Спостерігайте зміни значень функцій у реальному часі</li>
-                    <li>Увімкніть анімацію для автоматичного обертання</li>
-                </ol>
+        <!-- Залежності -->
+        <div class="content-card" id="dependencies">
+            <div class="card-header">
+                <h2>📦 Залежності та бібліотеки</h2>
             </div>
+            <div class="card-body">
+                <div class="section">
+                    <h3>🔗 Основні залежності</h3>
+                    <table class="api-table">
+                        <thead>
+                            <tr>
+                                <th>Бібліотека</th>
+                                <th>Версія</th>
+                                <th>Призначення</th>
+                                <th>CDN посилання</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>A-Frame</strong></td>
+                                <td><span class="parameter-type">1.4.2</span></td>
+                                <td>VR/AR фреймворк</td>
+                                <td><code>https://aframe.io/releases/1.4.2/aframe.min.js</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Three.js</strong></td>
+                                <td><span class="parameter-type">r155+</span></td>
+                                <td>3D графіка</td>
+                                <td><code>https://cdnjs.cloudflare.com/ajax/libs/three.js/</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-            <h3>Побудова графіків</h3>
-            <ol>
-                <li>Оберіть функцію (sin, cos або tan)</li>
-                <li>Змінюйте кут або увімкніть анімацію</li>
-                <li>Спостерігайте побудову графіка функції</li>
-                <li>Очистіть графік для нового експерименту</li>
-            </ol>
+                    <h3>🛠️ Додаткові залежності (опціонально)</h3>
+                    <div class="code-block">
+                        <div class="language">HTML</div>
+<!-- Для розширеного функціоналу -->
+&lt;script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"&gt;&lt;/script&gt;
 
-            <h3>AR/VR режими</h3>
-            <p><strong>VR:</strong> Натисніть 🌐, одягніть VR гарнітуру (за наявності)</p>
-            <p><strong>AR:</strong> Натисніть 🥽 на мобільному, дозвольте доступ до камери</p>
-        </section>
+<!-- Для AR функціоналу -->
+&lt;script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"&gt;&lt;/script&gt;
+                    </div>
 
-        <section class="section">
-            <h2><span class="emoji">🔧</span>Системні вимоги</h2>
-            
-            <h3>Мінімальні вимоги</h3>
-            <div class="tech-list">
-                <div class="tech-item"><strong>Браузер:</strong> Chrome 90+, Firefox 88+, Safari 14+, Edge 90+</div>
-                <div class="tech-item"><strong>JavaScript:</strong> ES6+ підтримка</div>
-                <div class="tech-item"><strong>WebGL:</strong> 1.0+ підтримка</div>
-                <div class="tech-item"><strong>Пам'ять:</strong> мінімум 1GB RAM</div>
-            </div>
-
-            <h3>Браузерна сумісність</h3>
-            <table>
-                <tr>
-                    <th>Браузер</th>
-                    <th>WebGL</th>
-                    <th>WebXR</th>
-                    <th>Статус</th>
-                </tr>
-                <tr>
-                    <td>Chrome 90+</td>
-                    <td><span class="status-icon">✅</span></td>
-                    <td><span class="status-icon">✅</span></td>
-                    <td>Повна підтримка</td>
-                </tr>
-                <tr>
-                    <td>Firefox 88+</td>
-                    <td><span class="status-icon">✅</span></td>
-                    <td><span class="status-icon">✅</span></td>
-                    <td>Повна підтримка</td>
-                </tr>
-                <tr>
-                    <td>Safari 14+</td>
-                    <td><span class="status-icon">✅</span></td>
-                    <td><span class="status-icon">⚠️</span></td>
-                    <td>Обмежена AR</td>
-                </tr>
-                <tr>
-                    <td>Edge 90+</td>
-                    <td><span class="status-icon">✅</span></td>
-                    <td><span class="status-icon">✅</span></td>
-                    <td>Повна підтримка</td>
-                </tr>
-            </table>
-        </section>
-
-        <section class="section">
-            <h2><span class="emoji">📥</span>Встановлення</h2>
-            
-            <div class="highlight">
-                <h3>Онлайн використання</h3>
-                <p>Просто відкрийте <a href="https://zshbrs.github.io/exam_project/demo.html">демонстрацію</a> у браузері - ніякого встановлення не потрібно!</p>
-            </div>
-
-            <div class="installation-methods">
-                <div class="method-card">
-                    <h4>Метод 1: Завантаження файлів</h4>
-                    <p>1. Завантажте файли з репозиторію</p>
-                    <p>2. Відкрийте <code>demo.html</code> у браузері</p>
+                    <h3>⚙️ Браузерна підтримка</h3>
+                    <div class="architecture-grid">
+                        <div class="architecture-item">
+                            <h4>✅ Повністю підтримується</h4>
+                            <p>Chrome 90+, Firefox 88+, Edge 90+, Safari 14.1+</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>⚠️ Часткова підтримка</h4>
+                            <p>Safari 13-14 (без WebXR), старші версії Chrome/Firefox</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>❌ Не підтримується</h4>
+                            <p>Internet Explorer, Chrome <80, мобільні браузери без WebGL</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="method-card">
-                    <h4>Метод 2: Локальний сервер</h4>
-                    <pre># Python 3
+        <!-- API Документація -->
+        <div class="content-card" id="api">
+            <div class="card-header">
+                <h2>🔌 API та компоненти</h2>
+            </div>
+            <div class="card-body">
+                <div class="section">
+                    <h3>🎮 Основні функції керування</h3>
+                    <table class="api-table">
+                        <thead>
+                            <tr>
+                                <th>Функція</th>
+                                <th>Параметри</th>
+                                <th>Повертає</th>
+                                <th>Опис</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>updateScene()</code></td>
+                                <td>-</td>
+                                <td><span class="parameter-type">void</span></td>
+                                <td>Оновлює всю сцену відповідно до поточного кута</td>
+                            </tr>
+                            <tr>
+                                <td><code>getValue(theta, func)</code></td>
+                                <td><span class="parameter-type number">number</span>, <span class="parameter-type string">string</span></td>
+                                <td><span class="parameter-type number">number</span></td>
+                                <td>Обчислює значення тригонометричної функції</td>
+                            </tr>
+                            <tr>
+                                <td><code>animate()</code></td>
+                                <td>-</td>
+                                <td><span class="parameter-type">void</span></td>
+                                <td>Запускає циклічну анімацію</td>
+                            </tr>
+                            <tr>
+                                <td><code>clearGraph()</code></td>
+                                <td>-</td>
+                                <td><span class="parameter-type">void</span></td>
+                                <td>Очищає побудовані графіки</td>
+                            </tr>
+                            <tr>
+                                <td><code>createGraphDot()</code></td>
+                                <td>-</td>
+                                <td><span class="parameter-type">void</span></td>
+                                <td>Створює точку-трекер на графіку</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>📊 Математичні компоненти</h3>
+                    <div class="code-block">
+                        <div class="language">JavaScript</div>
+<span class="comment">// Основні тригонометричні функції</span>
+<span class="keyword">function</span> <span class="function">getValue</span>(theta, func) {
+    <span class="keyword">switch</span> (func) {
+        <span class="keyword">case</span> <span class="string">"sin"</span>: <span class="keyword">return</span> Math.sin(theta);
+        <span class="keyword">case</span> <span class="string">"cos"</span>: <span class="keyword">return</span> Math.cos(theta);
+        <span class="keyword">case</span> <span class="string">"tan"</span>: 
+            <span class="keyword">const</span> tangent = Math.tan(theta);
+            <span class="keyword">return</span> Math.abs(tangent) > <span class="number">10</span> ? <span class="keyword">NaN</span> : tangent;
+        <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>;
+    }
+}
+
+<span class="comment">// Форматування чисел для відображення</span>
+<span class="keyword">function</span> <span class="function">formatNumber</span>(num) {
+    <span class="keyword">if</span> (Math.abs(num) < <span class="number">0.001</span>) <span class="keyword">return</span> <span class="string">"0.000"</span>;
+    <span class="keyword">if</span> (Math.abs(num - <span class="number">1</span>) < <span class="number">0.001</span>) <span class="keyword">return</span> <span class="string">"1.000"</span>;
+    <span class="keyword">if</span> (Math.abs(num + <span class="number">1</span>) < <span class="number">0.001</span>) <span class="keyword">return</span> <span class="string">"-1.000"</span>;
+    <span class="keyword">return</span> num.toFixed(<span class="number">3</span>);
+}
+                    </div>
+
+                    <h3>🎨 A-Frame компоненти</h3>
+                    <table class="api-table">
+                        <thead>
+                            <tr>
+                                <th>Компонент</th>
+                                <th>Атрибути</th>
+                                <th>Призначення</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>&lt;a-scene&gt;</code></td>
+                                <td>background, vr-mode-ui, ar-mode-ui</td>
+                                <td>Головний контейнер 3D сцени</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;a-entity&gt;</code></td>
+                                <td>position, rotation, scale</td>
+                                <td>Групування об'єктів, трансформації</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;a-ring&gt;</code></td>
+                                <td>radius-inner, radius-outer, color</td>
+                                <td>Тригонометричне коло</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;a-sphere&gt;</code></td>
+                                <td>radius, color, position</td>
+                                <td>Точка на колі та графіку</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;a-text&gt;</code></td>
+                                <td>value, color, position, scale</td>
+                                <td>Підписи та текстова інформація</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>⚡ Event API</h3>
+                    <div class="code-block">
+                        <div class="language">JavaScript</div>
+<span class="comment">// Обробка подій клавіатури</span>
+document.addEventListener(<span class="string">'keydown'</span>, (event) => {
+    <span class="keyword">switch</span>(event.key) {
+        <span class="keyword">case</span> <span class="string">'ArrowLeft'</span>:
+            angle = Math.max(<span class="number">0</span>, angle - <span class="number">5</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="string">'ArrowRight'</span>:
+            angle = Math.min(<span class="number">360</span>, angle + <span class="number">5</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="string">' '</span>:
+            animating = !animating;
+            <span class="keyword">break</span>;
+    }
+});
+
+<span class="comment">// Touch події для мобільних пристроїв</span>
+angleSlider.addEventListener(<span class="string">'touchmove'</span>, (e) => {
+    <span class="keyword">const</span> touchX = e.touches[<span class="number">0</span>].clientX;
+    <span class="keyword">const</span> newAngle = calculateAngleFromTouch(touchX);
+    updateAngle(newAngle);
+});
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Продуктивність -->
+        <div class="content-card" id="performance">
+            <div class="card-header">
+                <h2>⚡ Продуктивність та оптимізація</h2>
+            </div>
+            <div class="card-body">
+                <div class="section">
+                    <h3>📊 Цільові показники</h3>
+                    <div class="performance-grid">
+                        <div class="performance-item">
+                            <div class="metric">60</div>
+                            <div class="label">FPS (цільовий)</div>
+                        </div>
+                        <div class="performance-item">
+                            <div class="metric">&lt;3</div>
+                            <div class="label">Секунд завантаження</div>
+                        </div>
+                        <div class="performance-item">
+                            <div class="metric">&lt;50MB</div>
+                            <div class="label">Використання RAM</div>
+                        </div>
+                        <div class="performance-item">
+                            <div class="metric">&lt;5MB</div>
+                            <div class="label">Розмір ресурсів</div>
+                        </div>
+                    </div>
+
+                    <h3>🔧 Оптимізація коду</h3>
+                    <div class="architecture-grid">
+                        <div class="architecture-item">
+                            <h4>🎯 Рендеринг</h4>
+                            <p>Використання requestAnimationFrame, оптимізація Three.js матеріалів, LOD для 3D моделей</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>💾 Пам'ять</h4>
+                            <p>Disposal геометрії, обмеження кількості графічних точок, garbage collection</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>📡 Мережа</h4>
+                            <p>CDN для бібліотек, стиснення ресурсів, кешування статичних файлів</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>⚙️ JavaScript</h4>
+                            <p>Мінімізація обчислень, debouncing, оптимізація циклів анімації</p>
+                        </div>
+                    </div>
+
+                    <h3>📱 Мобільна оптимізація</h3>
+                    <div class="code-block">
+                        <div class="language">JavaScript</div>
+<span class="comment">// Автоматичне зниження якості на слабких пристроях</span>
+<span class="keyword">function</span> <span class="function">adjustQualityForDevice</span>() {
+    <span class="keyword">const</span> canvas = renderer.domElement;
+    <span class="keyword">const</span> pixelRatio = window.devicePixelRatio;
+    
+    <span class="comment">// Обмеження pixel ratio для продуктивності</span>
+    <span class="keyword">const</span> maxPixelRatio = navigator.userAgent.includes(<span class="string">'Mobile'</span>) ? <span class="number">1.5</span> : <span class="number">2</span>;
+    renderer.setPixelRatio(Math.min(pixelRatio, maxPixelRatio));
+    
+    <span class="comment">// Зменшення кількості точок графіка на мобільних</span>
+    <span class="keyword">if</span> (navigator.userAgent.includes(<span class="string">'Mobile'</span>)) {
+        maxGraphPoints = <span class="number">500</span>;
+    }
+}
+
+<span class="comment">// Оптимізація анімації</span>
+<span class="keyword">function</span> <span class="function">optimizedAnimate</span>() {
+    <span class="keyword">if</span> (!animating) <span class="keyword">return</span>;
+    
+    <span class="comment">// Пропуск кадрів при низькому FPS</span>
+    <span class="keyword">const</span> now = performance.now();
+    <span class="keyword">if</span> (now - lastFrameTime < <span class="number">16</span>) {
+        requestAnimationFrame(optimizedAnimate);
+        <span class="keyword">return</span>;
+    }
+    
+    updateScene();
+    lastFrameTime = now;
+    requestAnimationFrame(optimizedAnimate);
+}
+                    </div>
+
+                    <div class="warning-box">
+                        ⚠️ <strong>Важливо:</strong> На слабких пристроях автоматично знижується якість рендерингу та обмежується кількість елементів для забезпечення плавної роботи.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Розгортання -->
+        <div class="content-card" id="deployment">
+            <div class="card-header">
+                <h2>🚀 Розгортання та хостинг</h2>
+            </div>
+            <div class="card-body">
+                <div class="section">
+                    <h3>🌐 GitHub Pages (рекомендовано)</h3>
+                    <div class="code-block">
+                        <div class="language">Bash</div>
+<span class="comment"># 1. Клонування репозиторію</span>
+git clone https://github.com/username/educational-ar-project.git
+cd educational-ar-project
+
+<span class="comment"># 2. Налаштування GitHub Pages</span>
+<span class="comment"># Перейдіть до Settings > Pages > Source: Deploy from branch</span>
+<span class="comment"># Оберіть main branch та root folder</span>
+
+<span class="comment"># 3. Ваш проєкт буде доступний за адресою:</span>
+<span class="comment"># https://username.github.io/educational-ar-project/</span>
+                    </div>
+
+                    <h3>📡 Локальний веб-сервер</h3>
+                    <div class="architecture-grid">
+                        <div class="architecture-item">
+                            <h4>🐍 Python</h4>
+                            <div class="code-block">
+                                <div class="language">Bash</div>
+# Python 3
 python -m http.server 8000
 
-# Node.js  
-npx http-server -p 8000
+# Python 2
+python -m SimpleHTTPServer 8000
+                            </div>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🟢 Node.js</h4>
+                            <div class="code-block">
+                                <div class="language">Bash</div>
+# Встановлення http-server
+npm install -g http-server
 
-# PHP
-php -S localhost:8000</pre>
+# Запуск
+http-server -p 8000
+                            </div>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🔧 Live Server</h4>
+                            <div class="code-block">
+                                <div class="language">Bash</div>
+# VS Code розширення
+# Live Server extension
+
+# Або через npm
+npm install -g live-server
+live-server
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>☁️ Хмарні платформи</h3>
+                    <table class="api-table">
+                        <thead>
+                            <tr>
+                                <th>Платформа</th>
+                                <th>Складність</th>
+                                <th>Вартість</th>
+                                <th>Особливості</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>GitHub Pages</strong></td>
+                                <td><span class="parameter-type string">Легко</span></td>
+                                <td><span class="parameter-type string">Безкоштовно</span></td>
+                                <td>HTTPS, custom domains, автодеплой</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Netlify</strong></td>
+                                <td><span class="parameter-type string">Легко</span></td>
+                                <td><span class="parameter-type string">Freemium</span></td>
+                                <td>CDN, форми, serverless функції</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vercel</strong></td>
+                                <td><span class="parameter-type string">Легко</span></td>
+                                <td><span class="parameter-type string">Freemium</span></td>
+                                <td>Швидкий CDN, analytics</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Firebase</strong></td>
+                                <td><span class="parameter-type string">Середньо</span></td>
+                                <td><span class="parameter-type string">Freemium</span></td>
+                                <td>БД, аутентифікація, analytics</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>🔒 Вимоги безпеки</h3>
+                    <div class="info-box">
+                        💡 <strong>HTTPS обов'язковий:</strong> WebXR API та доступ до камери працюють тільки через захищене з'єднання HTTPS.
+                    </div>
+
+                    <div class="code-block">
+                        <div class="language">JavaScript</div>
+<span class="comment">// Перевірка підтримки HTTPS</span>
+<span class="keyword">if</span> (location.protocol !== <span class="string">'https:'</span> && location.hostname !== <span class="string">'localhost'</span>) {
+    console.warn(<span class="string">'HTTPS потрібен для WebXR та камери'</span>);
+    <span class="comment">// Можна показати попередження користувачу</span>
+}
+
+<span class="comment">// Перевірка підтримки WebXR</span>
+<span class="keyword">if</span> (<span class="string">'xr'</span> <span class="keyword">in</span> navigator) {
+    navigator.xr.isSessionSupported(<span class="string">'immersive-vr'</span>).then((supported) => {
+        <span class="keyword">if</span> (!supported) {
+            console.log(<span class="string">'VR не підтримується'</span>);
+        }
+    });
+}
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="section">
-            <h2><span class="emoji">💻</span>Розробка</h2>
-            
-            <h3>Структура проєкту</h3>
-            <pre>exam_project/
-├── README.md           # Документація
-├── index.html          # Головна сторінка  
-├── demo.html           # Інтерактивна демонстрація
-├── docs/              # Додаткова документація
-└── assets/            # Ресурси (зображення, шрифти)</pre>
-
-            <h3>Локальна розробка</h3>
-            <pre># Клонування
-git clone https://github.com/zshbrs/exam_project.git
-cd exam_project
-
-# Запуск сервера
-python -m http.server 8080</pre>
-        </section>
-
-        <section class="section">
-            <h2><span class="emoji">👤</span>Автор</h2>
-            <div class="highlight">
-                <p><strong>Зоя Сухобрус</strong></p>
-                <p>📧 Email: <a href="mailto:zoya.sukhobrus@gmail.com">zoya.sukhobrus@gmail.com</a></p>
-                <p>🐙 GitHub: <a href="https://github.com/zshbrs">@zshbrs</a></p>
-                <p>🎓 Університет: Криворізький державний педагогічний університет</p>
-                <p>📚 Курс: Інноваційні цифрові технології в освіті</p>
+        <!-- Розробка -->
+        <div class="content-card" id="development">
+            <div class="card-header">
+                <h2>👨‍💻 Розробка та налагодження</h2>
             </div>
-        </section>
+            <div class="card-body">
+                <div class="section">
+                    <h3>🛠️ Середовище розробки</h3>
+                    <div class="architecture-grid">
+                        <div class="architecture-item">
+                            <h4>📝 Редактор коду</h4>
+                            <p>Visual Studio Code з розширеннями: Live Server, A-Frame Snippets, WebGL Insight</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🌐 Браузер</h4>
+                            <p>Chrome DevTools для налагодження WebGL, Firefox для WebXR тестування</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>📱 Тестування</h4>
+                            <p>Chrome Remote Debugging для мобільних пристроїв</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🔧 Інструменти</h4>
+                            <p>A-Frame Inspector (Ctrl+Alt+I), Three.js Editor, WebXR Emulator</p>
+                        </div>
+                    </div>
 
-        <footer class="footer">
-            <h3>⭐ Поставте зірку, якщо проєкт був корисним!</h3>
-            <p>Зроблено з ❤️ для освіти та інновацій</p>
-            <div class="footer-links">
-                <a href="https://zshbrs.github.io/exam_project/" class="footer-link">🏠 Головна</a>
-                <a href="https://zshbrs.github.io/exam_project/demo.html" class="footer-link">🚀 Демо</a>
-                <a href="https://github.com/zshbrs/exam_project" class="footer-link">📖 GitHub</a>
+                    <h3>🐛 Налагодження</h3>
+                    <div class="code-block">
+                        <div class="language">JavaScript</div>
+<span class="comment">// Включення детального логування</span>
+<span class="keyword">const</span> DEBUG = <span class="keyword">true</span>;
+
+<span class="keyword">function</span> <span class="function">debugLog</span>(message, data = <span class="keyword">null</span>) {
+    <span class="keyword">if</span> (DEBUG) {
+        console.log(<span class="string">`[DEBUG] ${message}`</span>, data);
+    }
+}
+
+<span class="comment">// Моніторинг продуктивності</span>
+<span class="keyword">function</span> <span class="function">monitorPerformance</span>() {
+    <span class="keyword">const</span> stats = <span class="keyword">new</span> Stats();
+    stats.showPanel(<span class="number">0</span>); <span class="comment">// FPS</span>
+    document.body.appendChild(stats.dom);
+    
+    <span class="keyword">function</span> <span class="function">animate</span>() {
+        stats.begin();
+        
+        <span class="comment">// Ваш код рендерингу</span>
+        updateScene();
+        
+        stats.end();
+        requestAnimationFrame(animate);
+    }
+}
+
+<span class="comment">// Перехоплення помилок WebGL</span>
+<span class="keyword">function</span> <span class="function">setupWebGLErrorHandling</span>() {
+    <span class="keyword">const</span> gl = renderer.getContext();
+    <span class="keyword">const</span> originalGetError = gl.getError;
+    
+    gl.getError = <span class="keyword">function</span>() {
+        <span class="keyword">const</span> error = originalGetError.call(<span class="keyword">this</span>);
+        <span class="keyword">if</span> (error !== gl.NO_ERROR) {
+            console.error(<span class="string">'WebGL Error:'</span>, error);
+        }
+        <span class="keyword">return</span> error;
+    };
+}
+                    </div>
+
+                    <h3>🧪 Тестування</h3>
+                    <div class="success-box">
+                        ✅ <strong>Чек-лист тестування:</strong> Перевіряйте функціональність на різних пристроях та браузерах перед релізом.
+                    </div>
+
+                    <table class="api-table">
+                        <thead>
+                            <tr>
+                                <th>Тип тестування</th>
+                                <th>Інструменти</th>
+                                <th>Що перевіряти</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Функціональне</strong></td>
+                                <td>Manual testing</td>
+                                <td>Всі елементи UI, математичні обчислення, анімації</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Продуктивність</strong></td>
+                                <td>Chrome DevTools, Stats.js</td>
+                                <td>FPS, використання пам'яті, час завантаження</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Сумісність</strong></td>
+                                <td>BrowserStack, реальні пристрої</td>
+                                <td>Різні браузери, мобільні пристрої, VR гарнітури</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Безпека</strong></td>
+                                <td>HTTPS тестування</td>
+                                <td>Доступ до камери, WebXR дозволи</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>📊 Моніторинг у продакшені</h3>
+                    <div class="code-block">
+                        <div class="language">JavaScript</div>
+<span class="comment">// Простий analytics</span>
+<span class="keyword">function</span> <span class="function">trackEvent</span>(action, category = <span class="string">'trigonometry'</span>) {
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> gtag !== <span class="string">'undefined'</span>) {
+        gtag(<span class="string">'event'</span>, action, {
+            <span class="string">'event_category'</span>: category,
+            <span class="string">'event_label'</span>: <span class="string">'educational_app'</span>
+        });
+    }
+}
+
+<span class="comment">// Відстеження помилок</span>
+window.addEventListener(<span class="string">'error'</span>, (event) => {
+    console.error(<span class="string">'Global error:'</span>, event.error);
+    trackEvent(<span class="string">'error'</span>, <span class="string">'javascript'</span>);
+});
+
+<span class="comment">// Відстеження використання функцій</span>
+<span class="keyword">function</span> <span class="function">trackFunctionUsage</span>(functionName) {
+    trackEvent(<span class="string">`function_${functionName}`</span>, <span class="string">'usage'</span>);
+}
+                    </div>
+
+                    <h3>🔄 Робочий процес розробки</h3>
+                    <div class="architecture-grid">
+                        <div class="architecture-item">
+                            <h4>1️⃣ Планування</h4>
+                            <p>Визначення функцій, створення mockups, планування архітектури</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>2️⃣ Розробка</h4>
+                            <p>Ітераційна розробка, локальне тестування, code review</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>3️⃣ Тестування</h4>
+                            <p>Функціональні тести, тести продуктивності, cross-browser</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>4️⃣ Деплой</h4>
+                            <p>Staging деплой, production деплой, моніторинг</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>
+
+        <!-- Додаткова інформація -->
+        <div class="content-card">
+            <div class="card-header">
+                <h2>📚 Додаткові ресурси</h2>
+            </div>
+            <div class="card-body">
+                <div class="section">
+                    <h3>🔗 Корисні посилання</h3>
+                    <div class="architecture-grid">
+                        <div class="architecture-item">
+                            <h4>📖 Документація</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><a href="https://aframe.io/docs/">A-Frame Documentation</a></li>
+                                <li><a href="https://threejs.org/docs/">Three.js Documentation</a></li>
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API">WebXR API</a></li>
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL API</a></li>
+                            </ul>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🛠️ Інструменти</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><a href="https://threejs.org/editor/">Three.js Editor</a></li>
+                                <li><a href="https://aframe.io/aframe-inspector/">A-Frame Inspector</a></li>
+                                <li><a href="https://chrome.google.com/webstore/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje">WebXR Emulator</a></li>
+                                <li><a href="https://spector.babylonjs.com/">WebGL Inspector</a></li>
+                            </ul>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>📚 Навчальні матеріали</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><a href="https://aframe.io/aframe-school/">A-Frame School</a></li>
+                                <li><a href="https://threejs-journey.xyz/">Three.js Journey</a></li>
+                                <li><a href="https://webxr.io/">WebXR.io</a></li>
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web">MDN 3D Web Guide</a></li>
+                            </ul>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🎨 Ресурси</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><a href="https://github.com/aframevr/sample-assets">A-Frame Assets</a></li>
+                                <li><a href="https://sketchfab.com/">3D Models (Sketchfab)</a></li>
+                                <li><a href="https://fonts.google.com/">Google Fonts</a></li>
+                                <li><a href="https://unsplash.com/">Free Images (Unsplash)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>🤝 Спільнота та підтримка</h3>
+                    <div class="info-box">
+                        💬 <strong>Приєднуйтесь до спільноти:</strong> A-Frame Slack, Three.js Discord, WebXR Community для отримання допомоги та обміну досвідом.
+                    </div>
+
+                    <h3>🔄 Майбутні оновлення</h3>
+                    <div class="architecture-grid">
+                        <div class="architecture-item">
+                            <h4>📈 Версія 2.0</h4>
+                            <p>Додаткові математичні функції, покращена AR підтримка, мультиплатформенність</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🎯 Версія 2.1</h4>
+                            <p>Інтеграція з LMS системами, експорт результатів, колаборативний режим</p>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>🚀 Версія 3.0</h4>
+                            <p>AI асистент, персоналізоване навчання, розширена аналітика</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижній колонтитул -->
+        <div class="content-card">
+            <div class="card-body" style="text-align: center; padding: 20px;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🔧 Технічна документація завершена</h3>
+                <p style="margin-bottom: 10px;">Ця документація охоплює всі технічні аспекти розробки та підтримки проєкту.</p>
+                <p style="font-size: 0.9rem; color: #666;">
+                    Розроблено в рамках курсу "Інноваційні цифрові технології в освіті"<br>
+                    Версія документації: 1.0 | Останнє оновлення: 2024
+                </p>
+                
+                <div style="margin-top: 20px; padding: 15px; background: linear-gradient(45deg, #2c3e50, #34495e); border-radius: 10px; color: white;">
+                    <strong>⚡ Успішної розробки!</strong><br>
+                    Створюйте інноваційні освітні рішення з новітніми технологіями
+                </div>
+            </div>
+        </div>
     </div>
 
-    <button class="scroll-top" onclick="scrollToTop()">↑</button>
-
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Автоматичне відкриття посилань в новому вікні
+        document.addEventListener('DOMContentLoaded', function() {
+            // Зовнішні посилання відкриваються в новому вікні
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+            });
+
+            // Плавна прокрутка для навігації
+            document.querySelectorAll('.navigation a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Підсвічування активного розділу при прокрутці
+            const sections = document.querySelectorAll('.content-card[id]');
+            const navLinks = document.querySelectorAll('.navigation a');
+
+            function updateActiveSection() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    if (window.pageYOffset >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.style.background = 'rgba(255,255,255,0.2)';
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.style.background = 'rgba(255,255,255,0.4)';
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveSection);
+            updateActiveSection();
+
+            // Анімація появи карток при прокрутці
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.content-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                observer.observe(card);
+            });
+
+            // CSS анімація
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Показати перший розділ відразу
+            if (sections.length > 0) {
+                sections[0].style.animation = 'fadeInUp 0.6s ease-out forwards';
+            }
+        });
+
+        // Копіювання коду при кліку на code блоки
+        document.querySelectorAll('.code-block').forEach(block => {
+            block.style.cursor = 'pointer';
+            block.title = 'Клікніть для копіювання коду';
+            
+            block.addEventListener('click', function() {
+                const code = this.textContent.replace(/^\s*[A-Za-z]+\s*/, ''); // Видаляємо мітку мови
+                navigator.clipboard.writeText(code).then(() => {
+                    const originalBg = this.style.background;
+                    this.style.background = '#27ae60';
+                    
+                    // Додаємо тимчасове повідомлення
+                    const message = document.createElement('div');
+                    message.textContent = 'Код скопійовано!';
+                    message.style.cssText = `
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #27ae60;
+                        color: white;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        font-size: 0.8rem;
+                        z-index: 1000;
+                    `;
+                    this.style.position = 'relative';
+                    this.appendChild(message);
+                    
+                    setTimeout(() => {
+                        this.style.background = originalBg;
+                        if (message.parentNode) {
+                            message.parentNode.removeChild(message);
+                        }
+                    }, 2000);
                 });
             });
         });
 
-        // Scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollButton = document.querySelector('.scroll-top');
-            if (window.pageYOffset > 300) {
-                scrollButton.classList.add('visible');
-            } else {
-                scrollButton.classList.remove('visible');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // Інтерактивні API таблиці
+        document.querySelectorAll('.api-table tr').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+                this.style.transition = 'all 0.3s ease';
             });
-        }
-
-        // Add hover effects to cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.feature-card, .tech-item, .method-card');
             
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.02)';
-                    this.style
+            row.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
